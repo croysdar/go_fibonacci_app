@@ -1,4 +1,4 @@
-# go_fibonacci_api
+# go_fibonacci_app
 Toy Development Project for 6 Degrees Health
 
 To test:
