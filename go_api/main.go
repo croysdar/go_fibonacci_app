@@ -21,16 +21,16 @@ func Fibonacci(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 	if digit, err := strconv.ParseInt(ps.ByName("digit"), 10, 32); err == nil {
 		// var digit int = ps.ByName("digit")
 		f := fib()
-		if digit < 0 {
-			fmt.Fprint(w, "Error! Please use a positive number.\n")
-		} else {
+		if digit > 0 {
 			fmt.Fprintf(w, "0 ")
 			for n := int(digit); n > 1; n-- {
 				fmt.Fprintf(w, "%d ", f())
 			}
+		} else {
+			fmt.Fprintf(w, "Error! Please use a number larger than 0.\n")
 		}
 	} else {
-		fmt.Fprint(w, "Error! Please use a valid number.\n")
+		fmt.Fprintf(w, "Error! Please use a number.\n")
 	}
 }
 
